@@ -1,0 +1,141 @@
+.App-header {
+    position: fixed;
+    background-color: #0e0c38;
+    height: 70px; 
+    width: 100%;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    z-index: 2100;
+  }
+  .items{
+    height: 100%;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .logo{
+    font-family: 'Sriracha';
+    font-size: 40px;
+    margin-right: auto;
+    margin-left: 10px;
+    text-decoration: none;
+    align-items: center;
+    color: #fff;
+  }
+  .header-item{
+    height: 100%;
+    padding: 0 20px 0  20px; 
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+    font-family: "MuseoModerno";
+    font-weight: 600;
+  }
+  .header-item.active{
+      background-color: #a60000;
+      padding-bottom: 10px;
+  }
+  .ex-tb{ 
+    background-size: 100% 200%;
+    background-image: linear-gradient(to top, #a60000 50%, #0e0c38 50%);
+    transition: 
+      background-position .2s ease-in-out,
+      padding-bottom .2s ease-in-out .1s;
+    }
+    .ex-tb:hover,   
+    .ex-tb:focus {
+      background-position: 0 100%;
+      padding-bottom: 10px;
+  }
+  #overlay {
+    height: 0px;
+    transition: height .5s ease-in-out .2s;
+  }
+  .items-overlay{
+    transform: translateX(-150%);
+  }
+  @media only screen and (max-width:1030px){
+    .items{
+      display: none;
+    }
+    #overlay {
+      position: fixed;
+      width: 100%;
+      height: 0px;
+      top: 70px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #0e0c38;
+      z-index: 2;
+    }
+    #overlay.active{
+      height: 100%;
+    } 
+    #overlay.active .items-overlay{
+      /* animation: mymove .8s .2s forwards ; */
+      transform: translateX(0%);
+    }
+    .items-overlay{
+      position: absolute;
+      text-align: center;
+      top: 70px;
+      width: 100%;
+      transition: transform .9s cubic-bezier(0,.31,1,.98) .2s;
+    } 
+    .listeitems{
+      list-style: none;
+      width: 100%;
+    }
+    .listeitems li{
+      width: 100%;
+      height: 70px;
+    }
+    .listeitems li:hover{
+      opacity: 0.7;
+    }
+    .item{
+      display: block;
+      width: 100%;
+      font-size: 35px;
+      font-weight: 700;
+      text-decoration: none;
+      font-family: "MuseoModerno";
+      color: #fff;
+    }
+    .nav-icon {
+      cursor: pointer;
+      margin: 1em;
+      width: 30px;
+    }
+    .nav-icon:after, 
+    .nav-icon:before, 
+    .nav-icon div {
+      background-color: #fff;
+      border-radius: 3px;
+      content: '';
+      display: block;
+      height: 3px;
+      margin: 7px 0;
+      transition: all .4s ease-in-out;
+    }
+    .nav-icon.active:before {
+      transform: translateY(10px) rotate(135deg);
+    }
+    .nav-icon.active:after {
+      transform: translateY(-10px) rotate(-135deg);
+    }
+    
+    .nav-icon.active div {
+      transform: scale(0);
+    }
+  }
