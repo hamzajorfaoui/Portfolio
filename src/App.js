@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Presentation  from './components/PresentationPage/Presentation.js';
+
 function App() {
   return (
     <div className="App"> 
     <Navbar></Navbar>
-    <Presentation></Presentation>
+    <Presentation></Presentation>     
+    
     </div>
     
   );

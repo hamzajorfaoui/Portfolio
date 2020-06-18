@@ -1,0 +1,141 @@
+.Overlay{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3000;
+    /* color: #fff; */
+    background-color: #0e0c388c;
+    visibility: hidden;
+    transition: visibility .5s;
+}
+.Overlay .row{
+margin:30px auto;
+width: clac(100% - 20px);
+max-width: 1000px;
+height: 0px;
+min-height: calc(100% - 60px); 
+display: flex;
+justify-content: center;
+overflow-x: hidden;
+transition: height 1s .5s;
+}
+.Overlay.active{
+    visibility: visible;
+}
+.Overlay.active .row{
+    height: auto;
+}
+.Overlay.active .row .left,.Overlay.active .row .right{
+    /* animation: animate 1s forwards; */
+    transform: translateX(0%);
+}
+@keyframes animate{
+    0%{}
+    100%{transform: translateX(0%);}
+}
+
+.Aboutback{
+    width: 100%;
+    position: relative;
+    z-index: 0;
+}
+.Aboutback span{
+    position: absolute;
+    top: -30px;
+    left:10%;
+    color: #4a4a4a;
+    opacity: .07;
+    font-size: 190px;
+}
+.row .about{
+flex: 1;
+z-index: 2;
+overflow: hidden;
+}
+.row .about.left{
+    background-color: #fff;
+    transform: translateX(-150%);
+    transition: transform 1s;
+}
+.row .about.right{
+    background-color: #fff;
+    border-left: 0.5px solid #205e7d;
+    color: #fff;
+    display: flex;
+    transform: translateX(150%);
+    transition: transform 1s;
+}
+.row .about.right img{
+    width: 100%;
+    margin: auto;
+}
+.about-text{
+    z-index: 2;
+    margin: auto;
+    padding: 110px 10%;
+    font-size: 15px;
+    color: #1c1d25;
+    font-weight: 100;
+}
+.about-text span span{
+    color: #205e7d;
+}
+.about-text h3 span{
+    font-size: 15px;
+    opacity: 0.8;
+}
+@media screen and (max-width:800px){ 
+    .row{
+        flex-direction: column;
+    }
+    .row .about.right{
+        border-left: 0px solid #205e7d;
+        margin-top: 0px;
+    }
+    .left .closebutton{
+        display: block !important;
+    }
+    .right .closebutton{
+        display: none;
+    }
+}
+
+.left .closebutton{
+    display: none;
+}
+.closebutton{
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 100;
+}
+.closebutton:before,
+.closebutton div{
+content: '';
+height: 3px;
+width: 30px;
+background-color: #205e7d; 
+margin: 7px 0;
+display: block;
+transition: all .5s;
+}
+.closebutton div{
+    transform: rotate(45deg);
+}
+.closebutton:before{
+    transform: translateY(10px) rotate(-45deg);
+}
+.closebutton:hover:before{
+    transform: translateY(8px) rotate(45deg);
+    height: 1px;
+}
+.closebutton:hover div{
+    transform:  rotate(135deg);
+    height: 1px;
+
+}

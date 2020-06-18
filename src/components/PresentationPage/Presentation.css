@@ -1,19 +1,21 @@
 .presentation{
     position: absolute;
     width: 100%;
+    overflow: auto;
     top:70px;
     bottom: 0;
     background-color: #0e0c38; 
 }
 .lines{
     margin-top: 70px;
-    transform: translateX(-100%);
+    transform: scale(0);
     transition: .6s transform cubic-bezier(0.5, 1, 0.89, 1), 
                 .2s margin-left cubic-bezier(0.5, 1, 0.89, 1) .6s;
 }
 .lines.active{
  margin-left: 15px;
- transform: translateX(0px);
+ transform: scale(1);
+ transform-origin: left center;
 }
 .lines span{
     color: #fff;
@@ -35,5 +37,90 @@
 .about{
     font-family: "Roboto-Medium";
     font-size: 20px;
+    line-height: 1.2;
+}
+.icone{
+    font-size: 25px;
+    color: #fff;
+    margin-right: 10px;
+    opacity: 0.8;
+    transition: opacity .3s ease-out;
+}
+.icone:hover{
+    opacity: 1;
+}
+.findme{
+    font-family: "Roboto-Medium";
+    font-size: 20px;
+    opacity: 0.7;
     line-height: 1.9;
+}
+.btn{
+    position: relative;
+    color: #fff;
+    background: linear-gradient(to right , #a60000 , #680000);
+    background-size: 130% 200%;
+    border-color: transparent;
+    font-family: "Roboto-Medium";
+    padding: 12px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all .3s;
+    margin-top: 10px;
+}
+.btn .btnspan{
+    position: relative;
+    z-index: 10;
+}
+.btn .btnicon{
+    position: absolute;
+    top: 6px;
+    right: -25px;
+    width: 35px;
+    height: 35px;
+    z-index: 10;
+    transition: transform .3s cubic-bezier(.694,.048,.335,1),-webkit-transform .3s cubic-bezier(.694,.048,.335,1);
+}
+.btn .btnicon svg{
+    fill: #fff;
+}
+.btndiv{
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+}
+.btndiv::before,.btndiv::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform:translateX(-110%);
+}
+.btndiv::before{
+    width: 100%;
+    background-color: #0e0c38;
+    background: linear-gradient(270deg,#235aa6,#101b3b);
+    transition: transform .6s cubic-bezier(.694,.048,.335,1) .0.5s;
+    z-index: 2;
+}
+.btndiv::after{
+    width: 80%;
+    background-color: #26408b;
+    background: linear-gradient(270deg,#235aa6,#0e0c38);
+    transition: transform .6s cubic-bezier(.694,.048,.335,1);
+    z-index: 2;
+}
+.btn:hover .btndiv::after{
+    transform:translateX(130%);
+}
+.btn:hover .btndiv::before{
+    transform:translateX(130%);
+}
+.btn:hover .btnicon{
+    transform:translateX(6px);
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import './Navbar.css';
 function Navbar() {
   const [overlay,setOverlay] = useState(false);
@@ -6,7 +6,7 @@ function Navbar() {
     setOverlay(!overlay);
   } 
   return (
-    <div>
+    <div> 
       <div className="App-header">
 
         <a href="/ok" className="logo">

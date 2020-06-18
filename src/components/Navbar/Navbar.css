@@ -68,6 +68,7 @@
       display: none;
     }
     #overlay {
+      overflow: hidden;
       position: fixed;
       width: 100%;
       height: 0px;
@@ -95,6 +96,7 @@
     .listeitems{
       list-style: none;
       width: 100%;
+      padding: 0;
     }
     .listeitems li{
       width: 100%;
