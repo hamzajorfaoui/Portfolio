@@ -6,20 +6,22 @@
     right: 0;
     z-index: 3000;
     /* color: #fff; */
+    height: auto;
     background-color: #0e0c388c;
     visibility: hidden;
+    overflow: auto;
     transition: visibility .5s;
 }
 .Overlay .row{
-margin:30px auto;
-width: clac(100% - 20px);
-max-width: 1000px;
-height: 0px;
-min-height: calc(100% - 60px); 
-display: flex;
-justify-content: center;
-overflow-x: hidden;
-transition: height 1s .5s;
+    margin:30px auto;
+    width: clac(100% - 20px);
+    max-width:800px;
+    height: 0px;
+    min-height: calc(100% - 60px); 
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    transition: height 1s .5s;
 }
 .Overlay.active{
     visibility: visible;
@@ -28,14 +30,8 @@ transition: height 1s .5s;
     height: auto;
 }
 .Overlay.active .row .left,.Overlay.active .row .right{
-    /* animation: animate 1s forwards; */
     transform: translateX(0%);
 }
-@keyframes animate{
-    0%{}
-    100%{transform: translateX(0%);}
-}
-
 .Aboutback{
     width: 100%;
     position: relative;
@@ -50,9 +46,9 @@ transition: height 1s .5s;
     font-size: 190px;
 }
 .row .about{
-flex: 1;
-z-index: 2;
-overflow: hidden;
+    flex: 1;
+    z-index: 2;
+    overflow: hidden;
 }
 .row .about.left{
     background-color: #fff;
@@ -71,13 +67,69 @@ overflow: hidden;
     width: 100%;
     margin: auto;
 }
+.aboutsection{
+    width: 300%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 160px;
+    transition: transform .5s ease-out;
+}
 .about-text{
     z-index: 2;
-    margin: auto;
-    padding: 110px 10%;
+    flex: 1;
+    /* margin: auto; */
+    padding: 0px 5%;
     font-size: 15px;
     color: #1c1d25;
     font-weight: 100;
+    transform: translateX(0%);
+    transition: transform .5s ease-out;
+}
+.about-text:nth-child(2){
+    transform: translateX(100%);
+}
+.about-text:nth-child(3){
+    transform: translateX(200%);
+}
+.About_bottons{
+    position: absolute;
+    width: 100%;
+    top: 140px;
+    z-index: 100;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.About_bottons button{
+    background-color: transparent;
+    border: 0px;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 10px;
+    color: #0e0c38;
+    transition: opacity .5s;
+    display: flex;
+    justify-content: center;
+}
+.About_bottons button:focus{
+    outline: none;
+    border: none;
+}
+.About_bottons button:hover{
+  opacity: 0.7;
+}
+.About_bottons button:disabled{
+    color: #f2f2f2;
+    cursor: not-allowed;
+}
+.About_bottons button:disabled{
+    opacity: 1;
+}
+.About_bottons button span{
+    font-size: 15px;
+    margin: 0px 3px;
 }
 .about-text span span{
     color: #205e7d;
@@ -89,53 +141,31 @@ overflow: hidden;
 @media screen and (max-width:800px){ 
     .row{
         flex-direction: column;
+        margin: 0 !important;
     }
     .row .about.right{
         border-left: 0px solid #205e7d;
         margin-top: 0px;
     }
-    .left .closebutton{
+    .left .cls{
         display: block !important;
     }
-    .right .closebutton{
+    .right .cls{
         display: none;
     }
 }
 
-.left .closebutton{
+.left .cls{
     display: none;
 }
-.closebutton{
+
+.cls{
     position: absolute;
     top: 10px;
-    right: -10px;
-    width: 50px;
-    height: 50px;
+    right: 0px;
+    width: 40px;
+    height: 30px;
     cursor: pointer;
     z-index: 100;
 }
-.closebutton:before,
-.closebutton div{
-content: '';
-height: 3px;
-width: 30px;
-background-color: #205e7d; 
-margin: 7px 0;
-display: block;
-transition: all .5s;
-}
-.closebutton div{
-    transform: rotate(45deg);
-}
-.closebutton:before{
-    transform: translateY(10px) rotate(-45deg);
-}
-.closebutton:hover:before{
-    transform: translateY(8px) rotate(45deg);
-    height: 1px;
-}
-.closebutton:hover div{
-    transform:  rotate(135deg);
-    height: 1px;
 
-}
